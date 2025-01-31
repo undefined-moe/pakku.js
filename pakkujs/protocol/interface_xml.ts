@@ -14,12 +14,14 @@ export interface XmlEgress {
     type: 'xml';
 }
 
+const window = 'window' in globalThis ? globalThis.window : new (require('jsdom').JSDOM)().window;
+
 // extracted from bilibiliPlayer.min.js
 function parse_xml_magic(k: string) {
 	try {
 		k = k.replace(/[\x00-\x08\x0b-\x0c\x0e-\x1f\x7f]/g, '');
 	} catch (c) {}
-	return (new window.DOMParser).parseFromString(k, 'text/xml');
+	return new window.DOMParser().parseFromString(k, 'text/xml');
 }
 
 function xml_to_chunk(xmlstr: string): DanmuChunk<DanmuObject> {
@@ -58,7 +60,7 @@ function xml_to_chunk(xmlstr: string): DanmuChunk<DanmuObject> {
 }
 
 function chunk_to_xml(chunk: DanmuChunk<DanmuObject>): string {
-    let parser = new DOMParser();
+    let parser = new window.DOMParser();
     let dom_str = (
         '<i>' +
         '<chatserver>chat.bilibili.com</chatserver>' +
@@ -91,7 +93,7 @@ function chunk_to_xml(chunk: DanmuChunk<DanmuObject>): string {
         i_elem.appendChild(elem);
     }
     
-    let serializer = new XMLSerializer();
+    let serializer = new window.XMLSerializer();
     let s = serializer.serializeToString(dom);
 
     // prettify

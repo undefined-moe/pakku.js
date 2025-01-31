@@ -18,7 +18,7 @@ export const DISPVAL_TIME_THRESHOLD = 4500;
 const DISPVAL_POWER = .35, SHRINK_MAX_RATE = 1.732;
 const WEIGHT_DROPPED = -114514;
 
-const _cvs = document.createElement('canvas');
+const _cvs = ('document' in globalThis) ? document.createElement('canvas') : require('canvas').createCanvas(800, 600);
 const _ctx = _cvs.getContext('2d')!;
 _ctx.font = `20px 黑体`;
 

@@ -14,6 +14,17 @@
 
 自动合并B站视频中刷屏弹幕的浏览器插件，让您免受各种带节奏弹幕的刷屏之苦。
 
+## Pakku Server
+
+Use with [BilibiliPotPlayer](https://github.com/chen310/BilibiliPotPlayer)
+
+考虑到过滤部分使用了 RegExp，为避免 ReDOS 攻击，请自建服务。
+
+```
+yarn start # server available at http://localhost:3100
+# GET /subtitle?cid=123456789&aid=123456789&options=b64encodedOptionsJSON
+```
+
 ↓ 《千绪的通学路》第5话
 
 ![](https://s.xmcp.ltd/pakkujs/comm/1.png)
