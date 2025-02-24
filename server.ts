@@ -102,7 +102,7 @@ const server = createServer(async (req, res) => {
         });
         const parsed = Danmaku2ASS(
             t,
-            'Bilibili', 320, 240, 0,
+            'Bilibili', 1280, 720, 5,
             options.font || params.get('font') || 'sans-serif',
             options.fontSize || (+(params.get('font_size') || '')) || 25.0,
             options.alpha || (+(params.get('alpha') || '')) || 1.0,
