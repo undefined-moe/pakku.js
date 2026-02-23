@@ -1,3 +1,23 @@
+![logo](https://cloud.githubusercontent.com/assets/6646473/17503651/20b41376-5e24-11e6-8829-6b8a0ccd47a9.png)
+# pakku.js
+
+自动合并B站视频中刷屏弹幕的浏览器插件，让您免受各种带节奏弹幕的刷屏之苦。
+
+## Pakku Server
+
+导出合并后的弹幕为 ASS 文件，供传统播放器使用。（如 [BilibiliPotPlayer](https://github.com/chen310/BilibiliPotPlayer)）
+
+```
+yarn start # server available at http://localhost:3100
+# GET /subtitle?cid=123456789&aid=123456789&options=b64encodedOptionsJSON
+```
+
+<summary>
+
+原 README
+
+<detail>
+
 [![Chrome Web Store - Version](https://img.shields.io/chrome-web-store/v/jklfcpboamajpiikgkbjcnnnnooefbhh.svg?style=flat-square)](https://chromewebstore.google.com/detail/pakku%EF%BC%9A%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%BC%B9%E5%B9%95%E8%BF%87%E6%BB%A4%E5%99%A8/jklfcpboamajpiikgkbjcnnnnooefbhh)
 [![Chrome Web Store - Rating](https://img.shields.io/chrome-web-store/rating/jklfcpboamajpiikgkbjcnnnnooefbhh.svg?style=flat-square)](https://chromewebstore.google.com/detail/pakku%EF%BC%9A%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%BC%B9%E5%B9%95%E8%BF%87%E6%BB%A4%E5%99%A8/jklfcpboamajpiikgkbjcnnnnooefbhh)
 /
@@ -8,22 +28,6 @@
 [![Mozilla Add-on - Rating](https://img.shields.io/amo/rating/pakkujs.svg?style=flat-square)](https://addons.mozilla.org/zh-CN/firefox/addon/pakkujs?src=external-shield)
 
 #### [→ 点我安装 ←](https://s.xmcp.ltd/pakkujs/?src=readme_1) （支持 Chrome、Edge、Firefox）
-
-![logo](https://cloud.githubusercontent.com/assets/6646473/17503651/20b41376-5e24-11e6-8829-6b8a0ccd47a9.png)
-# pakku.js
-
-自动合并B站视频中刷屏弹幕的浏览器插件，让您免受各种带节奏弹幕的刷屏之苦。
-
-## Pakku Server
-
-Use with [BilibiliPotPlayer](https://github.com/chen310/BilibiliPotPlayer)
-
-考虑到过滤部分使用了 RegExp，为避免 ReDOS 攻击，请自建服务。
-
-```
-yarn start # server available at http://localhost:3100
-# GET /subtitle?cid=123456789&aid=123456789&options=b64encodedOptionsJSON
-```
 
 ↓ 《千绪的通学路》第5话
 
@@ -62,3 +66,6 @@ yarn start # server available at http://localhost:3100
 [GPLv3](LICENSE.txt)
 
 #### [→ 点我安装 ←](https://s.xmcp.ltd/pakkujs/?src=readme_2) （支持 Chrome、Edge、Firefox）
+
+</detail>
+</summary>
