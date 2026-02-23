@@ -1,5 +1,5 @@
 import { createServer } from 'http';
-import { Danmaku2ASS } from './xml2ass';
+import { danmaku2ass } from './xml2ass';
 import Schema from 'schemastery';
 import { init, task } from './entry';
 
@@ -100,17 +100,22 @@ const server = createServer(async (req, res) => {
             MODE_ELEVATION: options.modeElevation,
             REPRESENTATIVE_PERCENT: options.representativePercent,
         });
-        const parsed = Danmaku2ASS(
-            t,
-            'Bilibili', 1280, 720, 5,
-            options.font || params.get('font') || 'sans-serif',
-            options.fontSize || (+(params.get('font_size') || '')) || 25.0,
-            options.alpha || (+(params.get('alpha') || '')) || 1.0,
-            options.durationMarquee || (+(params.get('duration_marquee') || '')) || 5.0,
-            options.durationStill || (+(params.get('duration_still') || '')) || 5.0,
-            true,
-        );
-        const final = parsed.join('');
+
+        const durationMarquee = options.durationMarquee || (+(params.get('duration_marquee') || '')) || 5.0;
+        const durationStill = options.durationStill || (+(params.get('duration_still') || '')) || 5.0;
+        const alpha = options.alpha || (+(params.get('alpha') || '')) || 1.0;
+        const fontFace = options.font || params.get('font') || 'Microsoft YaHei';
+        const fontSize = options.fontSize || (+(params.get('font_size') || '')) || 40;
+        const final = danmaku2ass(t, {
+            width: 1920,
+            height: 1080,
+            fontFace,
+            fontSize,
+            alpha,
+            durationMarquee,
+            durationStill,
+        });
+
         res.setHeader('Content-Type', 'text/plain; charset=utf-8');
         res.writeHead(200);
         res.write(final);
